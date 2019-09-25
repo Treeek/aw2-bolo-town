@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index', ["title" => "Página Inicial"]);
+});
+
+Route::get('/add', function () {
+    return view('addSoftware', ["title" => "Página Inicial"]);
 });
