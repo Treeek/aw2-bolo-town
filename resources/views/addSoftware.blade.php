@@ -5,7 +5,7 @@
 @section('title', 'Add')
 
 @section('sidebar')
-    @parent
+ 
 @endsection
 
 @section('content')

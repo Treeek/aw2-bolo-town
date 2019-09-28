@@ -2,13 +2,13 @@
 
 @extends('layouts.app')
 
-@section('title', 'Page Title')
+@section('title', 'Página Inicial')
 
 @section('navbar')
     @parent
     <p>ahasjdgdhsjasdgsahjdsaghdsajk</p>
 @endsection
-<p>asdasdsa</p>
+
 @section('content')
     <p>This is my body content.</p>
 @endsection
