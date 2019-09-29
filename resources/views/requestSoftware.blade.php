@@ -17,7 +17,7 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
             <div class="card">
                 <div class="card-header">Requisitar software</div>
                 <div class="card-body">
-                    <form action="" method="GET">
+                    <form action="" method="POST">
                         @csrf
 
 
