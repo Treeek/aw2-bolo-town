@@ -97,6 +97,7 @@
                             software</a>
                     </div>
                 </a>
+                @if (Auth::user()->is_admin)
                 <a href="/gerenciamento-labs/views/dashboard.php">
                     <div class="nav-item row px-4 align-items-center">
                         <span class="item-icon">
@@ -105,6 +106,7 @@
                         <a href="/gerenciamento-labs/views/dashboard.php" class="item-name pl-3">Dashboard</a>
                     </div>
                 </a>
+                @endif
                 <a href="/gerenciamento-labs/server/logout.php">
                     <div class="nav-item row px-4 align-items-center">
                         <span class="item-icon">
@@ -115,7 +117,7 @@
                 </a>
             </div>
         </div>
-        <main class="py-4">
+        <main class="p-4 body-content">
             @yield('content')
         </main>
     </div>

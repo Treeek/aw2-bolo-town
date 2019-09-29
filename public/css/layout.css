@@ -4,8 +4,8 @@
     cursor: pointer;
 }
   
-.nav-item:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+.nav-item:not(.dropdown):hover {
+    background-color: rgba(41, 40, 40, 0.4);
     color: white;
 }
   
@@ -37,4 +37,8 @@
       position: fixed;
       top: 0;
       left: 0;
+  }
+
+  .body-content {
+      margin-left: 250px;
   }
