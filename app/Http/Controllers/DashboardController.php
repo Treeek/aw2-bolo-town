@@ -11,12 +11,7 @@ class DashboardController extends Controller
         return view('index', ['title' => 'Página Inicial']);
     }
 
-    public function login(Request $request) {
-        $rules = [
-            'email' => 'required|email',
-            'password' => 'required'
-        ];
-
-        $this->validate($request, $rules);
+    public function createLab(Request $request) {
+        
     }
 }

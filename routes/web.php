@@ -17,3 +17,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/',"DashboardController@index");
+
+Route::post('/lab',"DashboardController@createLab");
