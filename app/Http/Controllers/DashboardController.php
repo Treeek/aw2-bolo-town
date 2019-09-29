@@ -12,6 +12,9 @@ class DashboardController extends Controller
     }
 
     public function createLab(Request $request) {
-        
+
+    }
+
+    public function createSoftware(Request $request) {
     }
 }
