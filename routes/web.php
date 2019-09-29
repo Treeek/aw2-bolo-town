@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index', ["title" => "Página Inicial"]);
-});
+Route::get('/',"DashboardController@index");
+Auth::routes();
 
-Route::get('/add', function () {
-    return view('addSoftware', ["title" => "Página Inicial"]);
-});
+Route::get('/home', 'HomeController@index')->name('home');

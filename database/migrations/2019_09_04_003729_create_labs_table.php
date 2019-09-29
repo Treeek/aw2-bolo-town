@@ -16,7 +16,7 @@ class CreateLabsTable extends Migration
         Schema::create('labs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('qnt_computers');
+            $table->integer('qnt_computers');
             $table->timestamps();
         });
     }
