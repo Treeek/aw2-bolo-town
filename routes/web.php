@@ -18,4 +18,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/',"DashboardController@index");
 
+Route::get('/request', 'DashboardController@request');
+
 Route::post('/lab',"DashboardController@createLab");
