@@ -20,4 +20,6 @@ Route::get('/',"DashboardController@index");
 
 Route::get('/request', 'DashboardController@request');
 
+Route::get('/list_softwares', 'DashboardController@list_softwares');
+
 Route::post('/lab',"DashboardController@createLab");

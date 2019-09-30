@@ -1,6 +1,6 @@
 <div class="nav-bar">
     <div class="col">
-        <a href="/gerenciamento-labs/views/software_list.php">
+    <a href="{{ url('/list_softwares') }}">
             <div class="nav-item row px-4 align-items-center">
                 <span class="item-icon">
                     <i class="fas fa-list"></i>
