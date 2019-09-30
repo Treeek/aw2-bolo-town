@@ -62,11 +62,11 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
 
                             <div class="col-md-6">
                                 <div class="px-3 row">
-                                    @for ($i = 1; $i <= 12; $i++) <div class="form-check col-md-6 py-2">
-                                        <input class="form-check-input is is-invalid" type="checkbox" name="lab{{$i}}"
+                                    @for ($i = 1; $i <= 16; $i++) <div class="form-check col-md-6 py-2">
+                                        <input class="form-check-input" type="checkbox" name="lab{{$i}}"
                                             id="lab{{$i}}" />
                                         <label class="form-check-label" for="lab{{$i}}">
-                                            Laboratório {{$i}}
+                                            Laboratório {{str_pad($i, 2, '0', STR_PAD_LEFT)}}
                                         </label>
                                 </div>
                                 @endfor

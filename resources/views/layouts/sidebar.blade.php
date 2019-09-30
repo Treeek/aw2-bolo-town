@@ -1,6 +1,6 @@
 <div class="nav-bar">
     <div class="col">
-        <a href="/gerenciamento-labs/views/software_list.php">
+        <a href="{{ url('/list_softwares') }}">
             <div class="nav-item row px-4 align-items-center">
                 <span class="item-icon">
                     <i class="fas fa-list"></i>
@@ -28,12 +28,17 @@
             </div>
         </a>
         @endif
-        <a href="/gerenciamento-labs/server/logout.php">
+        <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
             <div class="nav-item row px-4 align-items-center">
                 <span class="item-icon">
                     <i class="fas fa-sign-out-alt"></i>
                 </span>
-                <span class="item-name pl-3">Sair</span>
+                <span class="item-name pl-3">
+                    Sair
+                </span>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
         </a>
     </div>
