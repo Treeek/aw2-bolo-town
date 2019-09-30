@@ -16,20 +16,17 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <form class="m-0" action="" method="post">
+                    <form id="form-labs" class="m-0" action="/list" method="GET">
                         <div class="form-group m-0 row">
                             <div class="col-3 d-flex align-items-center">
                                 <label class="m-0" for="lab"><strong>Softwares do:</strong></label>
                             </div>
                             <div class="input-group col pl-0">
-                                <select class="custom-select" id="lab">
+                                <select class="custom-select" id="lab" onchange="event.preventDefault();document.getElementById('form-labs').submit();">
                                     @for($i = 1; $i <= 16; $i++) <option>Laboratório
                                         {{str_pad($i, 2, '0', STR_PAD_LEFT)}}</option>
                                         @endfor
                                 </select>
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button">Buscar</button>
-                                </div>
                             </div>
                         </div>
                     </form>
