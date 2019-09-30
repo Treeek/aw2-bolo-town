@@ -22,4 +22,6 @@ Route::get('/request', 'DashboardController@request');
 
 Route::get('/list_softwares', 'DashboardController@list_softwares');
 
+Route::get('/dashboard', 'DashboardController@dashboard');
+
 Route::post('/lab',"DashboardController@createLab");

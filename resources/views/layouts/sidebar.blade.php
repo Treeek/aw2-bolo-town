@@ -19,7 +19,7 @@
             </div>
         </a>
         @if (Auth::user()->is_admin)
-        <a href="/gerenciamento-labs/views/dashboard.php">
+        <a href="{{ url('/dashboard') }}">
             <div class="nav-item row px-4 align-items-center">
                 <span class="item-icon">
                     <i class="fas fa-columns"></i>
