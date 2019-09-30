@@ -5,17 +5,17 @@
                 <span class="item-icon">
                     <i class="fas fa-list"></i>
                 </span>
-                <a href="/gerenciamento-labs/views/software_list.php" class="item-name pl-3">Listar
-                    softwares</a>
+                <span class="item-name pl-3">Listar
+                    softwares</span>
             </div>
         </a>
-        <a href="/gerenciamento-labs/views/software_requisition.php">
+        <a href="{{ url('/request') }}">
             <div class="nav-item row px-4 align-items-center">
                 <span class="item-icon">
                     <i class="fab fa-wpforms"></i>
                 </span>
-                <a href="/gerenciamento-labs/views/software_requisition.php" class="item-name pl-3">Requisitar
-                    software</a>
+                <span class="item-name pl-3">Requisitar
+                    software</span>
             </div>
         </a>
         @if (Auth::user()->is_admin)
@@ -24,7 +24,7 @@
                 <span class="item-icon">
                     <i class="fas fa-columns"></i>
                 </span>
-                <a href="/gerenciamento-labs/views/dashboard.php" class="item-name pl-3">Dashboard</a>
+                <span class="item-name pl-3">Dashboard</span>
             </div>
         </a>
         @endif
@@ -33,7 +33,7 @@
                 <span class="item-icon">
                     <i class="fas fa-sign-out-alt"></i>
                 </span>
-                <a href="/gerenciamento-labs/server/logout.php" class="item-name pl-3">Sair</a>
+                <span class="item-name pl-3">Sair</span>
             </div>
         </a>
     </div>
