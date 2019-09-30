@@ -18,8 +18,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/',"DashboardController@index");
 
-Route::get('/request', 'DashboardController@request');
+Route::get('/request', 'DashboardController@request')->name('request-software');
+Route::post('/request', "DashboardController@createSoftware")->name('request-software-post');
 
 Route::get('/list_softwares', 'DashboardController@list_softwares');
-
-Route::post('/lab',"DashboardController@createLab");

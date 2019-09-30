@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Application;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -30,39 +31,27 @@ class DashboardController extends Controller
 
     public function createSoftware(Request $request) {
         $validatedData = $request->validate([
-            'name' => 'required|max:240',
-            'link' => 'required|max:240',
-            'justification' => "required|min:10|max:240",
-            'os' => "required|max:240",
-            'lab1' => "required",
-            'lab2' => "required",
-            'lab3' => "required",
-            'lab4' => "required",
-            'lab5' => "required",
-            'lab6' => "required",
-            'lab7' => "required",
-            'lab8' => "required",
-            'lab9' => "required",
-            'lab10' => "required",
-            'lab11' => "required",
-            'lab12' => "required",
-            'lab13' => "required",
-            'lab14' => "required",
-            'lab15' => "required",
-            'lab16' => "required"
+            'software-name' => 'required|max:240',
+            'software-url' => 'required|max:240',
+            'software-justification' => "required|min:10|max:240",
+            'software-os' => "required|max:240"
         ]);
 
-        dd($validatedData);
-
-        foreach ($validatedData as $key => $value) {
+        foreach ($request->all() as $key => $value) {
             if (strpos($key, 'lab') !== false) {
-                $labs[] = $value;
+                $labs[] = $key;
             }
         }
 
         $labs = join('|', $labs);
-        Application::create([
-            $validatedData
-        ]);
+
+        $app = new Application;
+        $app->name = $validatedData["software-name"];
+        $app->link = $validatedData["software-url"];
+        $app->justification = $validatedData["software-justification"];
+        $app->os = $validatedData["software-os"];
+        $app->labs = $labs;
+
+        return redirect('/request')->with('status', 'Requisicao enviada!');
     }
 }

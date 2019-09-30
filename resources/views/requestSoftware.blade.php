@@ -13,11 +13,18 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-4">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Requisitar software</div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('request-software-post') }}" method="POST">
                         @csrf
 
 
@@ -99,7 +106,7 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
 
                     <div class="col-md-6">
                         <input id="software-os" type="text" class="form-control @error('software-os') is-invalid @enderror" name="software-os" required />
-                        
+
                         @error('software-os')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
