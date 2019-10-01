@@ -8,7 +8,7 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
 
 @extends('layouts.sidebar')
 
-@section('title', 'Softwares')
+@section('title', 'Dashboard')
 
 @section('content')
 <div class="container">
