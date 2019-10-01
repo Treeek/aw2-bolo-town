@@ -22,3 +22,5 @@ Route::get('/request', 'DashboardController@request')->name('request-software');
 Route::post('/request', "DashboardController@createSoftware")->name('request-software-post');
 
 Route::get('/list_softwares', 'DashboardController@list_softwares');
+
+Route::get('/dashboard', 'DashboardController@dashboard');

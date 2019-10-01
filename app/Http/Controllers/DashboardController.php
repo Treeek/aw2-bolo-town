@@ -38,6 +38,10 @@ class DashboardController extends Controller
         return view('listSoftwares', ["applications" => $apps]);
     }
 
+    public function dashboard(Request $request) {
+        return view('dashboard');
+    }
+
     public function createLab(Request $request) {
 
     }

@@ -15,9 +15,9 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
     <div class="row justify-content-center">
         <div class="col-md-4">
             @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
             @endif
         </div>
         <div class="col-md-8">
@@ -38,6 +38,23 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
                                     class="form-control @error('software-name') is-invalid @enderror"
                                     name="software-name" required autofocus />
                                 @error('software-name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="software-version" class="col-md-4 col-form-label text-md-right">
+                                Versão do Software:
+                            </label>
+
+                            <div class="col-md-6">
+                                <input id="software-version" type="text"
+                                    class="form-control @error('software-version') is-invalid @enderror"
+                                    name="software-version" required autofocus />
+                                @error('software-version')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -87,8 +104,9 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
                     </label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control @error('software-justification') is-invalid @enderror" id="software-justification" name="software-justification"
-                            rows="3" minlength="10" maxlength="240" required>
+                        <textarea class="form-control @error('software-justification') is-invalid @enderror"
+                            id="software-justification" name="software-justification" rows="3" minlength="10"
+                            maxlength="240" required>
                                     </textarea>
 
                         @error('software-justification')
@@ -105,7 +123,9 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
                     </label>
 
                     <div class="col-md-6">
-                        <input id="software-os" type="text" class="form-control @error('software-os') is-invalid @enderror" name="software-os" required />
+                        <input id="software-os" type="text"
+                            class="form-control @error('software-os') is-invalid @enderror" name="software-os"
+                            required />
 
                         @error('software-os')
                         <span class="invalid-feedback" role="alert">
