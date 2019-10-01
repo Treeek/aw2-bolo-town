@@ -19,12 +19,17 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
                 {{ session('status') }}
             </div>
             @endif
+            @if (session('error'))
+            <div class="alert alert-error">
+                {{ session('error') }}
+            </div>
+            @endif
         </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Requisitar software</div>
                 <div class="card-body">
-                    <form action="{{ route('request-software-post') }}" method="POST">
+                    <form action="{{ url('request') }}" method="POST">
                         @csrf
 
 
@@ -134,6 +139,7 @@ $os_list = ["Windows 7", "Windows 8", "Windows 10", "Linux", "MacOS"]
                         @enderror
                     </div>
                 </div>
+            <input type="hidden" name="teacher_name" value="{{Auth::user()->name}}">
                 <div class="text-right px-4">
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
