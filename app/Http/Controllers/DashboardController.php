@@ -33,7 +33,7 @@ class DashboardController extends Controller
 
         foreach ($applications as $app) {
             if(strpos($app->labs, "lab$lab_num") !== false)
-            $apps[] = $app;
+                $apps[] = $app;
         }
         return view('listSoftwares', ["applications" => $apps]);
     }
@@ -52,7 +52,8 @@ class DashboardController extends Controller
             'software-url' => 'required|max:240',
             'software-justification' => "required|min:10|max:240",
             'software-os' => "required|max:240",
-            'software-version' => "required"
+            'software-version' => "required",
+            "teacher_name" => "required"
         ]);
 
         foreach ($request->all() as $key => $value) {
@@ -70,6 +71,7 @@ class DashboardController extends Controller
         $app->os = $validatedData["software-os"];
         $app->labs = $labs;
         $app->version = $validatedData["software-version"];
+        $app->teacher_name = $validatedData["teacher_name"];
         if($app->save())
             return redirect('/request')->with('status', 'Requisicao enviada!');
         else
