@@ -38,8 +38,27 @@ class DashboardController extends Controller
         return view('listSoftwares', ["applications" => $apps]);
     }
 
+    public function aprove_software(Request $request) {
+        $validatedData = $request->validate([
+            'software-id' => 'required|integer',
+        ]);
+
+        $app = Application::find($validatedData["software-id"]);
+
+        $app->acceptance_date = now();
+
+        if($app->save())
+            return redirect('/home')->with('status', 'Aplicaçao aprovada!');
+        else
+            return redirect('/request')->withErrors('Erro inesperado!');
+
+    }
+
     public function dashboard(Request $request) {
-        return view('dashboard');
+
+        $applications = Application::whereNull('acceptance_date')->get();
+
+        return view('dashboard', ["applications" => $applications]);
     }
 
     public function createLab(Request $request) {
