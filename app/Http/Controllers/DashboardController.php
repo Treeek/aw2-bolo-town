@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Lab;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -22,7 +23,19 @@ class DashboardController extends Controller
     }
 
     public function list_softwares(Request $request) {
-        return view('listSoftwares');
+
+        $lab_num = $request->query('lab', "1");
+        if(!is_numeric($lab_num)) {
+            return view('listSoftwares')->withErrors("Insira um valor valido");
+        }
+        $apps = [];
+        $applications = Application::all();
+
+        foreach ($applications as $app) {
+            if(strpos($app->labs, "lab$lab_num") !== false)
+            $apps[] = $app;
+        }
+        return view('listSoftwares', ["applications" => $apps]);
     }
 
     public function createLab(Request $request) {
@@ -34,7 +47,8 @@ class DashboardController extends Controller
             'software-name' => 'required|max:240',
             'software-url' => 'required|max:240',
             'software-justification' => "required|min:10|max:240",
-            'software-os' => "required|max:240"
+            'software-os' => "required|max:240",
+            'software-version' => "required"
         ]);
 
         foreach ($request->all() as $key => $value) {
@@ -51,7 +65,10 @@ class DashboardController extends Controller
         $app->justification = $validatedData["software-justification"];
         $app->os = $validatedData["software-os"];
         $app->labs = $labs;
-
-        return redirect('/request')->with('status', 'Requisicao enviada!');
+        $app->version = $validatedData["software-version"];
+        if($app->save())
+            return redirect('/request')->with('status', 'Requisicao enviada!');
+        else
+            return redirect('/request')->withErrors('Erro inesperado!');
     }
 }
