@@ -21,9 +21,9 @@ class CreateApplicationsTable extends Migration
             $table->string('justification', 240);
             $table->string('labs', 240);
             $table->string('os');
-            $table->date('instalation_date');
-            $table->date('licence_expiration_date');
-            $table->date('acceptance_date');
+            $table->date('instalation_date')->nullable();
+            $table->date('licence_expiration_date')->nullable();
+            $table->date('acceptance_date')->nullable();
             $table->timestamps();
         });
     }
