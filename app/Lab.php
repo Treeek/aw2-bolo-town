@@ -13,5 +13,8 @@ class Lab extends Model
      */
     protected $table = 'labs';
 
-    
+    public function applications()
+    {
+        return $this->belongsToMany('App\Application', 'applications_instalations');
+    }
 }
