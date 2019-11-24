@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+/*
+|--------------------------------------------------------------------------
+| Lab Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('labs/{id?}', 'LabsController@index');
+Route::post('labs', 'LabsController@store');
+Route::put('labs/{id}', 'LabsController@update');
+Route::delete('labs/{id}', 'LabsController@destroy');

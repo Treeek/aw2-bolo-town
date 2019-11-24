@@ -13,6 +13,14 @@ class Lab extends Model
      */
     protected $table = 'labs';
 
+    protected $fillable = [
+        'name', 'qnt_computers'
+    ];
+
+    protected $hidden = [
+        'created_at', 'updated_at',
+    ];
+
     public function applications()
     {
         return $this->belongsToMany('App\Application', 'applications_instalations');
