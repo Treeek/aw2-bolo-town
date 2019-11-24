@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Lab;
+use App\Application;
 use Illuminate\Http\Request;
 
-class LabsController extends Controller
+class ApplicationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +20,7 @@ class LabsController extends Controller
             return $this->byId($id);
         }
 
-        return Lab::all();
+        return Application::all();
     }
 
     /**
@@ -35,9 +36,9 @@ class LabsController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $lab = Lab::create($request->all());
+        $application = Application::create($request->all());
 
-        return $lab;
+        return $application;
     }
 
     /**
@@ -48,11 +49,11 @@ class LabsController extends Controller
      */
     public function byId($id)
     {
-        $lab = Lab::find($id);
-        if (!$lab) {
+        $application = Application::find($id);
+        if (!$application) {
             return [];
         }
-        return $lab;
+        return $application;
     }
 
     /**
@@ -69,11 +70,11 @@ class LabsController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        $lab = $this->byId($id);
-        $lab->fill($request->all());
-        $lab->save();
+        $application = $this->byId($id);
+        $application->fill($request->all());
+        $application->save();
 
-        return $lab;
+        return $application;
     }
 
     /**
@@ -84,15 +85,19 @@ class LabsController extends Controller
      */
     public function destroy(int $id)
     {
-        Lab::destroy($id);
+        Application::destroy($id);
         abort(204);
     }
 
     public function rules()
     {
         return [
-            'qnt_computers' => 'required|integer|max:255',
-            'name' => 'required|string',
+            'name' => 'required|max:240',
+            'url' => 'required|max:240',
+            'justification' => "required|min:10|max:240",
+            'os' => "required|max:240",
+            'version' => "required",
+            "teacher_name" => "required"
         ];
     }
 }
