@@ -93,7 +93,7 @@ class ApplicationsController extends Controller
     {
         return [
             'name' => 'required|max:240',
-            'url' => 'required|max:240',
+            'link' => 'required|max:240',
             'justification' => "required|min:10|max:240",
             'os' => "required|max:240",
             'version' => "required",

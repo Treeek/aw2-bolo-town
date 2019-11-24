@@ -16,9 +16,9 @@ class Application extends Model
         "link",
         "justification",
         "os",
+        "teacher_name",
         "licence_expiration_date",
-        "acceptance_date",
-        "teacher_name"
+        "acceptance_date"
     ];
 
 
