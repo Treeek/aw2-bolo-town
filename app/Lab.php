@@ -18,11 +18,21 @@ class Lab extends Model
     ];
 
     protected $hidden = [
-        'created_at', 'updated_at',
+        'created_at', 'updated_at', 'pivot'
     ];
 
     public function applications()
     {
         return $this->belongsToMany('App\Application', 'applications_instalations');
+    }
+
+    public static function doesLabHaveApplication($lab_id, $application_id)
+    {
+        return
+            (bool) Lab::where('id', $lab_id)
+                ->whereHas('applications', function ($q) use ($application_id) {
+                    $q->where('id', $application_id);
+                })
+                ->count();
     }
 }

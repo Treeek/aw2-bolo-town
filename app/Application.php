@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     protected $dates = [
-        'acceptance_date',
+        'updated_at',
+        'created_at'
+    ];
+
+    protected $hidden = [
+        'updated_at',
+        'created_at',
+        'pivot'
     ];
 
     protected $fillable = [

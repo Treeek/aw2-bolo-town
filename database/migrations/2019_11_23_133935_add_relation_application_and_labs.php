@@ -16,6 +16,7 @@ class AddRelationApplicationAndLabs extends Migration
         Schema::create('applications_instalations', function (Blueprint $table) {
             $table->unsignedBigInteger('lab_id');
             $table->unsignedBigInteger('application_id');
+            $table->date('licence_expiration_date');
             $table->timestamp('created_at')->useCurrent();
 
             $table->foreign('lab_id')->references('id')->on('labs');

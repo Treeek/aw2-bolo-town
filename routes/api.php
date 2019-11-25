@@ -20,11 +20,13 @@ use Illuminate\Http\Request;
 |--------------------------------------------------------------------------
 */
 
-Route::get('labs/{id?}', 'LabsController@index');
-Route::post('labs', 'LabsController@store');
-Route::put('labs/{id}', 'LabsController@update');
-Route::delete('labs/{id}', 'LabsController@destroy');
 
+Route::get('labs/{lab?}', 'LabsController@index');
+Route::post('labs', 'LabsController@store');
+Route::put('labs/{lab}', 'LabsController@update');
+Route::delete('labs/{lab}', 'LabsController@destroy');
+
+Route::post('labs/install', "LabsController@installApplication");
 /*
 |--------------------------------------------------------------------------
 | Application Routes
